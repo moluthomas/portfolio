@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Molu Thomas — Application Support Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--ink:#0F1C17;
+--paper:#FBF8F1;
+--line:#25352C;
+--line-light:#DCD5C4;
+--gold:#E2963F;
+--sage:#8FAE95;
+--muted:#8C9690;
+--muted-dark:#5B655D;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+background:var(--paper);
+color:var(--ink);
+font-family:'IBM Plex Sans', sans-serif;
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+a{color:inherit;}
+.wrap{max-width:940px; margin:0 auto; padding:0 28px;}
+h1,h2,h3{font-family:'Space Grotesk', sans-serif; margin:0;}
+
+.hero{background:var(--ink); color:var(--paper); padding:64px 0 0;}
+.hero-inner{display:flex; gap:40px; align-items:flex-end; flex-wrap:wrap; padding-bottom:44px;}
+.portrait{width:104px; height:104px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); flex-shrink:0; opacity:0; animation:fadein 0.7s ease-out 0.1s forwards;}
+.hero-copy{flex:1; min-width:260px;}
+.eyebrow{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--gold); margin-bottom:14px; opacity:0; animation:fadein 0.6s ease-out 0s forwards;}
+.pitch{font-size:clamp(1.7rem, 4.2vw, 2.55rem); font-weight:600; line-height:1.18; letter-spacing:-0.01em; margin-bottom:18px; max-width:15ch; opacity:0; animation:fadein 0.7s ease-out 0.15s forwards;}
+.pitch em{font-style:normal; color:var(--gold);}
+.sub-pitch{font-size:1rem; color:#C9D2CB; max-width:56ch; margin-bottom:22px; opacity:0; animation:fadein 0.7s ease-out 0.25s forwards;}
+@keyframes fadein{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+.hero-meta{display:flex; flex-wrap:wrap; gap:8px 20px; font-size:0.85rem; color:#C9D2CB;}
+.hero-meta a{text-decoration:none; border-bottom:1px solid rgba(226,150,63,0.5);}
+.status{display:inline-flex; align-items:center; gap:7px; color:var(--paper); font-weight:500;}
+.dot{width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 3px rgba(226,150,63,0.2);}
+
+.pillars{border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(3, 1fr);}
+.pillar{padding:26px 26px 30px; border-left:1px solid var(--line);}
+.pillar:first-child{border-left:none;}
+.pillar h3{font-size:1.02rem; margin-bottom:8px; color:var(--paper);}
+.pillar p{font-size:0.87rem; color:#AEB8B1; margin:0;}
+
+section{padding:52px 0;}
+section + section{border-top:1px solid var(--line-light);}
+.section-label{font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--gold); margin-bottom:10px;}
+h2.section-title{font-size:1.55rem; font-weight:600; margin-bottom:26px; letter-spacing:-0.01em;}
+
+.record-list{display:flex; flex-direction:column; gap:18px;}
+.record-item{display:grid; grid-template-columns:96px 1fr; gap:22px; align-items:baseline; padding-bottom:18px; border-bottom:1px solid var(--line-light);}
+.record-item:last-child{border-bottom:none; padding-bottom:0;}
+.record-num{font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:1.5rem; color:var(--ink);}
+.record-text{font-size:0.95rem; color:#33392F;}
+.record-text strong{color:var(--ink);}
+
+.skill-block{margin-bottom:22px;}
+.skill-block:last-child{margin-bottom:0;}
+.skill-block h3{font-family:'IBM Plex Sans', sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted-dark); font-weight:600; margin-bottom:10px;}
+.tags{display:flex; flex-wrap:wrap; gap:8px;}
+.tag{font-size:0.85rem; padding:5px 12px; border:1px solid var(--line-light); border-radius:2px; color:#33392F;}
+.tag.strong{border-color:var(--ink); background:var(--ink); color:var(--paper); font-weight:500;}
+
+.exp-block{margin-bottom:38px;}
+.exp-block:last-child{margin-bottom:0;}
+.exp-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:4px 16px; margin-bottom:2px;}
+.exp-title{font-weight:600; font-size:1.05rem;}
+.exp-dates{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--muted-dark);}
+.exp-org{color:var(--muted-dark); font-size:0.88rem; margin-bottom:14px;}
+ul.impact-bullets{margin:0; padding-left:0; list-style:none;}
+ul.impact-bullets li{font-size:0.93rem; color:#2C3129; padding-left:18px; position:relative; margin-bottom:10px;}
+ul.impact-bullets li::before{content:"—"; position:absolute; left:0; color:var(--gold);}
+.exp-note{font-size:0.85rem; color:var(--muted-dark); font-style:italic; margin-top:4px;}
+
+.recognition{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+.rec-item{padding-right:12px;}
+.rec-item .rec-label{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--gold); margin-bottom:8px; display:block;}
+.rec-item p{margin:0; font-size:0.92rem; color:#33392F;}
+
+.foot-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+.foot-grid h3{font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted-dark); font-weight:600; margin:0 0 10px;}
+.foot-grid p{margin:0 0 6px; font-size:0.92rem;}
+.foot-grid .sub{color:var(--muted-dark); font-size:0.83rem;}
+
+.closing{background:var(--ink); color:var(--paper); padding:56px 0 48px;}
+.closing .wrap{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;}
+.closing-statement{font-family:'Space Grotesk', sans-serif; font-size:clamp(1.4rem, 3.4vw, 2rem); font-weight:600; max-width:22ch; line-height:1.2;}
+.closing-statement .gold{color:var(--gold);}
+.closing-links{display:flex; flex-direction:column; gap:10px; align-items:flex-end;}
+.closing-links a{text-decoration:none; font-size:0.92rem; border-bottom:1px solid rgba(226,150,63,0.5);}
+
+@media (max-width:700px){
+.pillars{grid-template-columns:1fr;}
+.pillar{border-left:none; border-top:1px solid var(--line);}
+.pillar:first-child{border-top:none;}
+.recognition{grid-template-columns:1fr;}
+.foot-grid{grid-template-columns:1fr;}
+.closing .wrap{flex-direction:column; align-items:flex-start;}
+.closing-links{align-items:flex-start;}
+.record-item{grid-template-columns:56px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="wrap">
+<div class="hero-inner">
+<img class="portrait" src="molu-thomas.jpg" alt="Molu Thomas">
+<div class="hero-copy">
+<div class="eyebrow">MOLU THOMAS · APPLICATION SUPPORT SPECIALIST</div>
+<h1 class="pitch">I keep enterprise systems — and the <em>people</em> who depend on them — running.</h1>
+<p class="sub-pitch">8+ years turning high-pressure support environments into calm, well-run operations: 30+ global clients, 4–5 critical incidents resolved every month, and a growing toolkit of AI automation that saves everyone time.</p>
+<div class="hero-meta">
+<span class="status"><span class="dot"></span>Immediately available · Sharjah, UAE</span>
+<a href="mailto:molu.thomas72@gmail.com">molu.thomas72@gmail.com</a>
+<a href="https://wa.me/917560840847">WhatsApp</a>
+<a href="https://linkedin.com/in/moluthomas">LinkedIn</a>
+</div>
+</div>
+</div>
+<div class="pillars">
+<div class="pillar">
+<h3>Calm under pressure</h3>
+<p>Resolves 4–5 P1/P2 incidents a month without letting service quality slip — the person teams call when things get urgent.</p>
+</div>
+<div class="pillar">
+<h3>Trusted at every level</h3>
+<p>Manages 30+ global client relationships and was the analyst leadership relied on to verify $1M+ in partner compliance.</p>
+</div>
+<div class="pillar">
+<h3>Builds what saves time</h3>
+<p>Uses Copilot Studio and Power Automate to automate the busywork — cutting KB article time in half.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="record">
+<div class="section-label">TRACK RECORD</div>
+<h2 class="section-title">What eight years of application support looks like</h2>
+<div class="record-list">
+<div class="record-item">
+<span class="record-num">8+</span>
+<span class="record-text"><strong>Years</strong> supporting enterprise applications end-to-end — from L2/.NET troubleshooting through to stakeholder management, promoted 4 times along the way.</span>
+</div>
+<div class="record-item">
+<span class="record-num">30+</span>
+<span class="record-text"><strong>Global client relationships</strong> managed simultaneously, aligning Microsoft Services solutions to each client's business goals.</span>
+</div>
+<div class="record-item">
+<span class="record-num">90%+</span>
+<span class="record-text">Of a <strong>100+ item defect backlog</strong> closed within SLA, sprint after sprint, in Azure DevOps.</span>
+</div>
+<div class="record-item">
+<span class="record-num">$1M+</span>
+<span class="record-text">In <strong>fraud identified and saved</strong> for Microsoft, from reviewing 10,000+ compliance documents a year.</span>
+</div>
+<div class="record-item">
+<span class="record-num">Top 100</span>
+<span class="record-text">Finish, out of <strong>1,000+ teams</strong>, in a company-wide AI competition.</span>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="section-label">WHAT I BRING</div>
+<h2 class="section-title">Skills employers hiring for support roles need</h2>
+<div class="skill-block">
+<h3>Client &amp; delivery</h3>
+<div class="tags">
+<span class="tag strong">Global client relationship management</span>
+<span class="tag strong">Incident management (P1/P2)</span>
+<span class="tag">Team leadership</span>
+<span class="tag">Agile/SCRUM delivery</span>
+<span class="tag">Sprint planning &amp; retrospectives</span>
+<span class="tag">Backlog &amp; user story management</span>
+<span class="tag">Risk &amp; issue tracking</span>
+</div>
+</div>
+<div class="skill-block">
+<h3>Technical &amp; QA</h3>
+<div class="tags">
+<span class="tag strong">Azure DevOps</span>
+<span class="tag strong">Dynamics CRM &amp; Zendesk</span>
+<span class="tag">Manual &amp; UAT testing</span>
+<span class="tag">Defect tracking</span>
+<span class="tag">SQL-based troubleshooting</span>
+<span class="tag">C# · Cucumber · Gherkin</span>
+<span class="tag">Microsoft 365</span>
+</div>
+</div>
+<div class="skill-block">
+<h3>AI &amp; automation</h3>
+<div class="tags">
+<span class="tag strong">Microsoft Copilot Studio</span>
+<span class="tag strong">Prompt engineering</span>
+<span class="tag">Power Automate &amp; Power Apps</span>
+<span class="tag">Power BI</span>
+<span class="tag">AI-driven process automation</span>
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="section-label">EXPERIENCE</div>
+<h2 class="section-title">Where this was built</h2>
+
+<div class="exp-block">
+<div class="exp-head">
+<span class="exp-title">Technical Analyst 3 — Application Support</span>
+<span class="exp-dates">Jan 2018 – Aug 2026</span>
+</div>
+<div class="exp-org">Reply Valorem</div>
+<ul class="impact-bullets">
+<li>Owned 30+ global client relationships end-to-end, from FastTrack M365 migrations to day-to-day escalations, holding an 80% CSAT rate throughout.</li>
+<li>Acted as program SME for high-severity incidents, resolving 4–5 P1/P2 cases a month and authoring the KB articles that helped the next person resolve theirs faster.</li>
+<li>Verified compliance documents for 1,000+ partners and flagged patterns that led to $1M+ in fraud being caught and stopped.</li>
+<li>Led a team of 3 while still carrying a full ticket and testing load — 100+ test cases a sprint, 90%+ of the defect backlog closed within SLA.</li>
+</ul>
+<div class="exp-note">Promoted 4 times within this role — Technical Analyst Associate → Technical Analyst 3.</div>
+</div>
+
+<div class="exp-block">
+<div class="exp-head">
+<span class="exp-title">Admin Assistant &amp; Online Tutor</span>
+<span class="exp-dates">Oct 2016 – Dec 2017</span>
+</div>
+<div class="exp-org">TutorMine</div>
+<ul class="impact-bullets">
+<li>Coordinated schedules and communication for students and tutors across multiple time zones — early proof of the same organizational reliability now applied to enterprise support.</li>
+</ul>
+</div>
+</section>
+
+<section id="recognition">
+<div class="section-label">RECOGNITION</div>
+<h2 class="section-title">Not just self-reported</h2>
+<div class="recognition">
+<div class="rec-item">
+<span class="rec-label">CLIENT-FACING</span>
+<p>Formal appreciation from a US-based Project Manager for outstanding contribution and delivery.</p>
+</div>
+<div class="rec-item">
+<span class="rec-label">INTERNAL</span>
+<p>Multiple-time "Employee of the Month" for consistent performance and dedication.</p>
+</div>
+<div class="rec-item">
+<span class="rec-label">TECHNICAL</span>
+<p>Top 100 finish among 1,000+ teams in Reply's company-wide AI competition.</p>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="section-label">FOUNDATIONS</div>
+<div class="foot-grid">
+<div>
+<h3>Certifications</h3>
+<p>Customer Service Foundations</p>
+<p class="sub">LinkedIn Learning</p>
+<p style="margin-top:12px;">IT Service Desk — Service Management</p>
+</div>
+<div>
+<h3>Education</h3>
+<p>Master of Computer Applications (MCA)</p>
+<p class="sub">Christ Knowledge City, Ernakulam · 2014–2017</p>
+<p style="margin-top:12px;">B.Sc. Mathematics</p>
+<p class="sub">S D College, Alappuzha · 2010–2013</p>
+</div>
+</div>
+</section>
+
+</div>
+
+<div class="closing">
+<div class="wrap">
+<div class="closing-statement">Ready to keep <span class="gold">your</span> systems — and your clients — running.</div>
+<div class="closing-links">
+<a href="mailto:molu.thomas72@gmail.com">molu.thomas72@gmail.com</a>
+<a href="https://wa.me/917560840847">WhatsApp +91 75608 40847</a>
+<a href="https://linkedin.com/in/moluthomas">linkedin.com/in/moluthomas</a>
+</div>
+</div>
+</div>
+
+</body>
+</html>
